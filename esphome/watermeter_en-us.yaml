@@ -18,14 +18,14 @@ esp8266:
   restore_from_flash: true
 
 dashboard_import:
-  package_import_url: github://nwalk7800/s0tool/esphome/watermeter-en-us.yaml
+  package_import_url: github://nwalk7800/s0tool/esphome/watermeter_en-us.yaml
 
 packages:
   remote_package:
     url: https://github.com/nwalk7800/s0tool/
     ref: main
     files:
-      - esphome/components/basis-en-us.yaml
-      - esphome/components/watermeter-en-us.yaml
+      - esphome/components/basis_en-us.yaml
+      - esphome/components/watermeter_en-us.yaml
       - esphome/components/s0tool-watermeter-update.yml
     refresh: 0d
