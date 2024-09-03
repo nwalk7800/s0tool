@@ -21,12 +21,13 @@ sensor:
     filters:
       lambda: return x * atof(id(Select_pulse_water).state.c_str());
 
-  - id: !extend sensor_pulse_meter_total
-    name: "Water meter total"
-    unit_of_measurement: "ft³"
-    accuracy_decimals: 1
-    filters:
-      - multiply: 1
+  total:
+    - id: !extend sensor_pulse_meter_total
+      name: "Water meter total"
+      unit_of_measurement: "ft³"
+      accuracy_decimals: 1
+      filters:
+        - multiply: 1
 
   - id: !extend watermeter_total
     name: "Water meter reading"
