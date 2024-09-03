@@ -25,8 +25,8 @@ sensor:
     name: "Water meter total"
     unit_of_measurement: "ft³"
     accuracy_decimals: 1
-      filters:
-        - multiply: 1
+    filters:
+      - multiply: 1
 
   - id: !extend watermeter_total
     name: "Water meter reading"
