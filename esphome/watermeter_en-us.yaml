@@ -1,0 +1,31 @@
+# Delen en bewerken mag maar laat deze eerste regels staan.
+# Bron : https://www.huizebruin.nl
+# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
+# © Huizebruin.nl
+substitutions:
+  name: s0tool-watermeter
+
+esphome:
+  name: ${name}
+  name_add_mac_suffix: true
+  comment: '${device_description}'
+  project:
+    name: "huizebruin.${name}"
+    version: "${project_version}"
+  min_version: 2024.6.0
+esp8266:
+  board: d1_mini
+  restore_from_flash: true
+
+dashboard_import:
+  package_import_url: github://nwalk7800/s0tool/esphome/watermeter-en-us.yaml
+
+packages:
+  remote_package:
+    url: https://github.com/nwalk7800/s0tool/
+    ref: main
+    files:
+      - esphome/components/basis-en-us.yaml
+      - esphome/components/watermeter-en-us.yaml
+      - esphome/components/s0tool-watermeter-update.yml
+    refresh: 0d

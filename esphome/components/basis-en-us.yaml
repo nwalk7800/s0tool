@@ -1,0 +1,16 @@
+packages:
+  basis: !include basis.yaml
+
+sensor:
+  - id: !extend S0tool_uptime_timestamp
+    name: "${name} online since"
+
+text_sensor:
+  - id: !extend s0tool_versie
+    name: "s0tool_version"
+
+  - id: !extend s0tool_ip_adres
+    name: "${name} IP Address"
+
+  - id: !extend s0tool_mac_adres
+    name: "${name} MAC Address"

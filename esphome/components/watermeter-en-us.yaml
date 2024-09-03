@@ -1,0 +1,37 @@
+packages:
+  basis: !include watermeter.yaml
+
+select: 
+  - id: !extend Select_pulse_water
+    name: Ft³ per pulse
+    initial_option: "0.1"
+
+number:
+  - id: !extend initial_water_value
+    name: Initial meter reading
+    unit_of_measurement: "ft³"
+    step: 0.1
+    set_action:
+      - lambda: id(total_water_pulses) = x * 1 / atof(id(Select_pulse_water).state.c_str());
+
+sensor:
+  - id: !extend watermeter_flow
+    name: "Water meter flow"
+    unit_of_measurement: "ft³/min"
+    filters:
+      lambda: return x * atof(id(Select_pulse_water).state.c_str());
+
+  - id: !extend sensor_pulse_meter_total
+    name: "Water meter total"
+    unit_of_measurement: "ft³"
+    accuracy_decimals: 1
+      filters:
+        - multiply: 1
+
+  - id: !extend watermeter_total
+    name: "Water meter reading"
+    unit_of_measurement: "ft³"
+    accuracy_decimals: 1
+
+  - id: !extend watermeter_flow_totaal
+    name: "Water meter flow total"
